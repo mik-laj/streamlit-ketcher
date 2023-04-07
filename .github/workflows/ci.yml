@@ -18,6 +18,10 @@ jobs:
     env:
       PYTHON_VERSION: "3.10"
 
+    permissions:
+      # Additional permission needed to update preview app
+      contents: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
