@@ -107,14 +107,14 @@ jobs:
             cd component-preview;
             git checkout --orphan "${TARGET_BRANCH}";
             git rm --cached -r .;
-            git status
-            ls
+            git clean -f -d
           )
           cp dist/streamlit_ketcher-*.whl component-preview/
           cp streamlit_app.py component-preview/
 
           (
           cd component-preview/;
+          git status;
           git config --local user.email \
             "41898282+github-actions[bot]@users.noreply.github.com";
           git config --local user.name "github-actions[bot]";
