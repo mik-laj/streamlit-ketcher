@@ -129,7 +129,7 @@ jobs:
           The action that build those constraints can be found at
           https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/
           "
-          git push "origin" "HEAD:${TARGET_BRANCH}";
+          git push --force "origin" "HEAD:${TARGET_BRANCH}";
           )
         env:
           TARGET_BRANCH: 'deploy-branch'
