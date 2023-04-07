@@ -101,7 +101,7 @@ jobs:
           set -x;
           (
             cd component-preview;
-            git checkout --orphan "${DEPLOY_BRANCH}";
+            git checkout --orphan "${TARGET_BRANCH}";
             git rm --cached -r .;
             git status
             ls
@@ -128,4 +128,4 @@ jobs:
           git push "origin" "HEAD:${TARGET_BRANCH}";
           )
         env:
-          DEPLOY_BRANCH: 'deploy-branch'
+          TARGET_BRANCH: 'deploy-branch'
