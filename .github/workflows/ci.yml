@@ -1,0 +1,91 @@
+---
+name: Continuous Integration
+
+on:  # yamllint disable-line rule:truthy
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+env:
+  FORCE_COLOR: true
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    env:
+      PYTHON_VERSION: "3.10"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+          cache-dependency-path: |
+            setup.*
+            pyproject.toml
+            dev-requirements.txt
+            .pre-commit-config.yaml
+
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+          node-version-file: '.nvmrc'
+          cache-dependency-path: frontend/yarn.lock
+
+      - name: Create development environment
+        run: |
+          ./dev.py py-create-venv
+          source ./venv/bin/activate
+          echo "PATH=$PATH" >> "$GITHUB_ENV"
+          echo "VIRTUAL_ENV=$VIRTUAL_ENV" >> "$GITHUB_ENV"
+          echo "Installed dependencies:"
+          pip freeze
+
+      - name: Run pre-commit
+        run: pre-commit run --show-diff-on-failure --color=always --all-files
+
+      - name: Test javascript code
+        run: ./dev.py js-test
+
+      - name: Test python code
+        run: ./dev.py py-test
+
+      - name: Ensure browsers are installed
+        run: playwright install chromium --with-deps
+
+      - name: Build frontend
+        run: ./dev.py js-build
+
+      - name: Run e2e tests
+        run: pytest e2e
+
+      - name: Upload snapshots
+        uses: actions/upload-artifact@v3
+        if: ${{ always() }}
+        with:
+          name: Snapshots
+          path: e2e/__snapshots__
+          if-no-files-found: error
+
+      - name: Build package
+        run: ./dev.py package
+
+      - name: Verify package
+        run: tar -tvf dist/streamlit_ketcher-*.tar.gz | grep NOTICES
+
+      - run: mkdir -p "$(yarn cache dir)"
+
+      - name: Upload WHL file
+        uses: actions/upload-artifact@v3
+        with:
+          name: WHL file
+          path: dist/*.whl
+          if-no-files-found: error

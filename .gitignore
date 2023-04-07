@@ -1,0 +1,14 @@
+# Byte-compiled files
+__pycache__/
+
+# Distribution / packaging
+streamlit_ketcher/frontend
+build/
+dist/
+
+# Python Environment
+venv/
+*.egg-info/
+
+# Jetbrain IDE
+.idea
