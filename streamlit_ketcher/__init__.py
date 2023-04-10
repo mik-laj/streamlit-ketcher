@@ -4,8 +4,6 @@ from typing import Optional, Literal
 
 import streamlit.components.v1 as components
 
-__version__ = "0.0.1"
-
 # Create a _IS_DEV constant. We'll set this to False while we're developing
 # the component, and True when we're ready to package and distribute it.
 _IS_DEV = "__main__" == __name__
