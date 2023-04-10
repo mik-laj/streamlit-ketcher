@@ -18,6 +18,10 @@ jobs:
     env:
       PYTHON_VERSION: "3.10"
 
+    permissions:
+      # Additional permission needed to update preview app
+      contents: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -89,3 +93,43 @@ jobs:
           name: WHL file
           path: dist/*.whl
           if-no-files-found: error
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          persist-credentials: 'true'
+          path: 'component-preview'
+
+      - run: |
+          set -x;
+          (
+            cd component-preview;
+            git checkout --orphan "${TARGET_BRANCH}";
+            git rm --cached -r .;
+            git clean -f -d
+          )
+          cp dist/streamlit_ketcher-*.whl component-preview/
+          cp streamlit_app.py component-preview/
+
+          (
+          cd component-preview/;
+          git status;
+          git config --local user.email \
+            "41898282+github-actions[bot]@users.noreply.github.com";
+          git config --local user.name "github-actions[bot]";
+          ls streamlit_ketcher-*.whl > requirements.txt;
+          git add .;
+          git commit --all --message "\
+          Updating constraints. Github run id: ${GITHUB_RUN_ID}
+
+          This update is automatically committed by the CI based on
+          '${GITHUB_REF}' in the '${GITHUB_REPOSITORY}' repository with
+          commit sha ${GITHUB_SHA}.
+          The action that build those constraints can be found at
+          https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/
+          "
+          git push --force "origin" "HEAD:${TARGET_BRANCH}";
+          )
+        env:
+          TARGET_BRANCH: 'deploy-branch'
