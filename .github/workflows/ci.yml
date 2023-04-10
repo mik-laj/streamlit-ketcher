@@ -58,16 +58,16 @@ jobs:
 
       - name: Test javascript code
         run: ./dev.py js-test
-      
+
       - name: Test python code
         run: ./dev.py py-test
-      
+
       - name: Ensure browsers are installed
         run: playwright install chromium --with-deps
-      
+
       - name: Build frontend
         run: ./dev.py js-build
-      
+
       - name: Run e2e tests
         run: pytest e2e
 
