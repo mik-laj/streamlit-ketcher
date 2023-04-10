@@ -1,8 +1,8 @@
 # 🧪 Streamlit Ketcher
 
-[![GitHub][github_badge]][github_link] [![PyPI][pypi_badge]][pypi_link] 
+[![GitHub][github_badge]][github_link] [![PyPI][pypi_badge]][pypi_link]
 
-Streamlit components that adds the ability to draw chemical compounds. This is a critical dependency for most drug discovery / drug design / cheminformatics applications. 
+Streamlit components that adds the ability to draw chemical compounds. This is a critical dependency for most drug discovery / drug design / cheminformatics applications.
 
 It is based on [Ketcher](https://lifescience.opensource.epam.com/ketcher/index.html).
 
@@ -26,7 +26,7 @@ st.markdown(f"Smile code: ``{smile_code}``")
 
 ## Demo
 
-[![Open in Streamlit][share_badge]][share_link] 
+[![Open in Streamlit][share_badge]][share_link]
 
 [![Preview][share_img]][share_link]
 
