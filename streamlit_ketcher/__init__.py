@@ -1,10 +1,8 @@
 from enum import Enum
 from pathlib import Path
-from typing import Optional, Literal
-
+from typing import Optional
+from typing_extensions import Literal
 import streamlit.components.v1 as components
-
-__version__ = "0.0.1"
 
 # Create a _IS_DEV constant. We'll set this to False while we're developing
 # the component, and True when we're ready to package and distribute it.

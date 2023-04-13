@@ -2,6 +2,7 @@
 
 import argparse
 import shlex
+import shutil
 import subprocess
 from pathlib import Path
 
@@ -70,9 +71,34 @@ def cmd_py_create_venv(args):
     )
 
 
+def cmd_py_build(args):
+    shutil.rmtree((THIS_DIRECTORY / "dist"), ignore_errors=True)
+    run_verbose(
+        [str(PYTHON_BIN), "-m", "pip", "install", "--upgrade", "build"],
+        cwd=THIS_DIRECTORY,
+    )
+    run_verbose(
+        [str(PYTHON_BIN), "-m", "build"],
+        cwd=THIS_DIRECTORY,
+    )
+
+
 def cmd_py_distribute(args):
     run_verbose(
-        [str(PYTHON_BIN), "setup.py", "bdist_wheel", "--universal", "sdist"],
+        [str(PYTHON_BIN), "-m", "pip", "install", "--upgrade", "twine"],
+        cwd=THIS_DIRECTORY,
+    )
+
+    run_verbose(
+        [
+            str(PYTHON_BIN),
+            "-m",
+            "twine",
+            "upload",
+            "--repository",
+            args.repository,
+            "dist/*",
+        ],
         cwd=THIS_DIRECTORY,
     )
 
@@ -99,7 +125,7 @@ def cmd_js_build(args):
 
 def cmd_package(args):
     cmd_js_build(args)
-    cmd_py_distribute(args)
+    cmd_py_build(args)
 
 
 def get_parser():
@@ -110,8 +136,21 @@ def get_parser():
         "py-create-venv", help="Create virtual environment for Python."
     ).set_defaults(func=cmd_py_create_venv)
     subparsers.add_parser(
-        "py-distribution", help="Create Python distribution files in dist/."
-    ).set_defaults(func=cmd_py_distribute)
+        "py-build", help="Create Python distribution files in dist/."
+    ).set_defaults(func=cmd_py_build)
+    py_distribute_parser = subparsers.add_parser(
+        "py-distribute", help="Upload our package to PyPI"
+    )
+    py_distribute_parser.add_argument(
+        "-r",
+        "--repository",
+        help=(
+            "The repository (package index) to upload the package to. "
+            "Should be a section in the config file (default: testpypi)."
+        ),
+        default="testpypi",
+    )
+    py_distribute_parser.set_defaults(func=cmd_py_distribute)
     subparsers.add_parser("py-test", help="Run unit tests for python.").set_defaults(
         func=cmd_py_test
     )
@@ -127,7 +166,7 @@ def get_parser():
         func=lambda _: run_verbose(["yarn", "test"], cwd=FRONTEND_DIRECTORY)
     )
     subparsers.add_parser(
-        "package", help='Build frontend and then run "py-distribution".'
+        "package", help='Build frontend and then create a WHL pacakge".'
     ).set_defaults(func=cmd_package)
     return parser
 
