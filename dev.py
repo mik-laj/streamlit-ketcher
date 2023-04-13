@@ -2,6 +2,7 @@
 
 import argparse
 import shlex
+import shutil
 import subprocess
 from pathlib import Path
 
@@ -71,6 +72,7 @@ def cmd_py_create_venv(args):
 
 
 def cmd_py_build(args):
+    shutil.rmtree((THIS_DIRECTORY / "dist"), ignore_errors=True)
     run_verbose(
         [str(PYTHON_BIN), "-m", "pip", "install", "--upgrade", "build"],
         cwd=THIS_DIRECTORY,
@@ -164,7 +166,7 @@ def get_parser():
         func=lambda _: run_verbose(["yarn", "test"], cwd=FRONTEND_DIRECTORY)
     )
     subparsers.add_parser(
-        "package", help='Build frontend and then run "py-distribution".'
+        "package", help='Build frontend and then create a WHL pacakge".'
     ).set_defaults(func=cmd_package)
     return parser
 
