@@ -8,7 +8,7 @@
     "@react-hook/resize-observer": "^1.2.6",
     "color2k": "^2.0.2",
     "ketcher-core": "^2.7.2",
-    "ketcher-react": "^2.7.2",
+    "ketcher-react": "^2.8.0",
     "ketcher-standalone": "^2.7.2",
     "react": "^17.0.2",
     "react-app-polyfill": "^3.0.0",
@@ -47,7 +47,7 @@
   "resolutions": {
     "streamlit-component-lib/apache-arrow": "11.0.0",
     "ketcher-core": "2.7.2",
-    "ketcher-react": "2.7.2",
+    "ketcher-react": "2.8.0",
     "ketcher-standalone": "2.7.2",
     "ketcher-standalone/ketcher-core": "2.7.2",
     "ketcher-react/ketcher-core": "2.7.2"
