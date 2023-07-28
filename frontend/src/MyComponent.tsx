@@ -58,6 +58,9 @@ export const MyComponent = function (props: MyComponentsProps) {
 
   const handleKetcherInit = useCallback(
     (ketcher: Ketcher) => {
+      // @ts-ignore 
+      ketcher.setSettings({ "general.dearomatize-on-load": true });
+      // ketcher.editor.setOptions(JSON.stringify({ "general.dearomatize-on-load": true }));
       setKetcher(ketcher);
       if (molecule) {
         ketcher.setMolecule(molecule);
