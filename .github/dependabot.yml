@@ -19,12 +19,12 @@ updates:
     schedule:
       interval: "weekly"
     groups:
-       ketcher:
-         patterns:
-          - "ketcher-*"
-       @emotion:
-         patterns:
-          - "@emotion/*"
+      ketcher:
+        patterns:
+        - "ketcher-*"
+      emotion:
+        patterns:
+        - "@emotion/*"
 
   - package-ecosystem: "pip"
     labels:
