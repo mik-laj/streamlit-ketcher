@@ -21,10 +21,10 @@ updates:
     groups:
       ketcher:
         patterns:
-        - "ketcher-*"
+          - "ketcher-*"
       emotion:
         patterns:
-        - "@emotion/*"
+          - "@emotion/*"
 
   - package-ecosystem: "pip"
     labels:
