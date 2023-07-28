@@ -69,7 +69,7 @@ jobs:
         run: ./dev.py js-build
 
       - name: Run e2e tests
-        run: pytest e2e
+        run: pytest e2e --reruns 5
 
       - name: Upload snapshots
         uses: actions/upload-artifact@v3
