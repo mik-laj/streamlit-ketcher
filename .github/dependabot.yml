@@ -23,3 +23,5 @@ updates:
     labels:
       - "dependencies"
     directory: "/"
+    schedule:
+      interval: "weekly"
