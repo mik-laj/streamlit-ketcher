@@ -2883,7 +2883,7 @@ anymatch@^3.0.3, anymatch@~3.1.2:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-apache-arrow@11.0.0, apache-arrow@^0.17.0:
+apache-arrow@^11.0.0:
   version "11.0.0"
   resolved "https://registry.yarnpkg.com/apache-arrow/-/apache-arrow-11.0.0.tgz#b48cdb81afb502bcafdc2912b50d0f2c58ebc783"
   integrity sha512-M8J4y+DimIyS44w2KOmVfzNHbTroR1oDpBKK6BYnlu8xVB41lxTz0yLmapo8/WJVAt5XcinAxMm14M771dm/rA==
@@ -4796,11 +4796,6 @@ eve-raphael@0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/eve-raphael/-/eve-raphael-0.5.0.tgz#17c754b792beef3fa6684d79cf5a47c63c4cda30"
   integrity sha512-jrxnPsCGqng1UZuEp9DecX/AuSyAszATSjf4oEcRxvfxa1Oux4KkIPKBAAWWnpdwfARtr+Q0o9aPYWjsROD7ug==
-
-event-target-shim@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/event-target-shim/-/event-target-shim-5.0.1.tgz#5d4d3ebdf9583d63a5333ce2deb7480ab2b05789"
-  integrity sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==
 
 eventemitter3@^4.0.0:
   version "4.0.7"
@@ -8473,7 +8468,7 @@ react-device-detect@^2.2.2:
   dependencies:
     ua-parser-js "^1.0.33"
 
-react-dom@^16.13.1:
+react-dom@^16.14.0:
   version "16.14.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.14.0.tgz#7ad838ec29a777fb3c75c3a190f661cf92ab8b89"
   integrity sha512-1gCeQXDLoIqMgqD3IO2Ah9bnf0w9kzhwN5q4FGnHZ67hBm9yePzB5JJAIQCc8x3pFnNlwFq4RidZggNAAkzWWw==
@@ -8625,7 +8620,7 @@ react-virtualized@^9.22.3:
     prop-types "^15.7.2"
     react-lifecycles-compat "^3.0.4"
 
-react@^16.13.1:
+react@^16.14.0:
   version "16.14.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
   integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
@@ -9346,16 +9341,15 @@ stop-iteration-iterator@^1.0.0:
   dependencies:
     internal-slot "^1.0.4"
 
-streamlit-component-lib@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/streamlit-component-lib/-/streamlit-component-lib-1.4.0.tgz#14955cfee0cd6dbd924880c03e569518bd997e4e"
-  integrity sha512-8ne67TdvJXuCczzUHp5FR6CxZr9T/ojY+LaNNn8FdXRXIGhVFUocKe84h1vJ5KhnTcI3rIGr7nnVUST1N7gtxA==
+streamlit-component-lib@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/streamlit-component-lib/-/streamlit-component-lib-2.0.0.tgz#c37dea6228b3682ea2016fff10108c64193a1f48"
+  integrity sha512-ekLjskU4Cz+zSLkTC9jpppv2hb8jlA3z2h+TtwGUGuwMKrGLrvTpzLJI1ibPuI+bZ60mLHVI1GP/OyNb7K7UjA==
   dependencies:
-    apache-arrow "^0.17.0"
-    event-target-shim "^5.0.1"
+    apache-arrow "^11.0.0"
     hoist-non-react-statics "^3.3.2"
-    react "^16.13.1"
-    react-dom "^16.13.1"
+    react "^16.14.0"
+    react-dom "^16.14.0"
 
 string-length@^4.0.1:
   version "4.0.2"

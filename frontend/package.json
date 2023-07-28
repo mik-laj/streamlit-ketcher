@@ -13,7 +13,7 @@
     "react": "^17.0.2",
     "react-app-polyfill": "^3.0.0",
     "react-dom": "^17.0.2",
-    "streamlit-component-lib": "^1.4.0"
+    "streamlit-component-lib": "^2.0.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -45,7 +45,6 @@
     ]
   },
   "resolutions": {
-    "streamlit-component-lib/apache-arrow": "11.0.0",
     "ketcher-core": "2.7.2",
     "ketcher-react": "2.7.2",
     "ketcher-standalone": "2.7.2",
