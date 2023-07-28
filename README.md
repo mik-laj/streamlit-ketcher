@@ -24,6 +24,14 @@ smile_code = st_ketcher(molecule)
 st.markdown(f"Smile code: ``{smile_code}``")
 ```
 
+## Development Notes
+
+To setup the dev server, `cd frontend` and run `yarn install --frozen-lockfile` to reproduce the dev environment exactly. Then run `yarn start` to start a local server. 
+
+Simple unit tests can be run with `pytest tests/`.
+
+To install locally (to run integration tests), `cd frontend` and run `yarn build` before running `pip install -e .` Integration tests also require setting up `playwright` (installed from `dev-requirements.txt`). Install browsers with `playwright install` after pip reqs are downloaded. Afterwards, run `pytest e2e/`. 
+
 ## Demo
 
 [![Open in Streamlit][share_badge]][share_link]

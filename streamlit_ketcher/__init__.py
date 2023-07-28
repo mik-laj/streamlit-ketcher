@@ -30,6 +30,7 @@ def st_ketcher(
     *,
     height: int = 500,
     molecule_format: Literal["SMILES", "MOLFILE"] = MoleculeFormat.SMILES.value,
+    dearomatize_on_load: bool = False,
     key: Optional[str] = None,
 ):
     """Create a new instance of "my_component".
@@ -43,6 +44,9 @@ def st_ketcher(
         The height of the editor expressed in pixels.
     molecule_format: "SMILES" or "MOLFILE"
         The format of molecule representation.
+    dearomatize: bool
+        Whether to dearomatize the molecule on load. HIGHLY recommended for
+        use with RDKit. 
     key: str or None
         An optional key that uniquely identifies this component. If this is
         None, and the component's arguments are changed, the component will
@@ -63,6 +67,7 @@ def st_ketcher(
         molecule=value,
         height=height,
         molecule_format=molecule_format,
+        dearomatize_on_load=dearomatize_on_load,
         key=key,
         default=value,
     )

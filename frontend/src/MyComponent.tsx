@@ -20,6 +20,7 @@ export interface MyComponentsArgs {
   molecule: string;
   height: number;
   molecule_format: typeof FORMAT_SMILES | typeof FORMAT_MOLFILE;
+  dearomatize_on_load: boolean;
 }
 
 export interface MyComponentsProps extends ComponentProps {
@@ -30,7 +31,8 @@ export const MyComponent = function (props: MyComponentsProps) {
   const editorRef = useRef(null);
   const [ketcher, setKetcher] = useState<Ketcher | null>(null);
   const [molecule, setMolecule] = useState<string>(props.args["molecule"]);
-  const { molecule_format: moleculeFormat, height } = props.args;
+  const { molecule_format: moleculeFormat, height, dearomatize_on_load} = props.args;
+  // const [dearomatize_on_load, setDearomatize] = useState<boolean>(props.args["dearomatize_on_load"]);
 
   useEffect(() => Streamlit.setFrameHeight());
   useResizeObserver(editorRef, (entry) => Streamlit.setFrameHeight());
@@ -58,9 +60,11 @@ export const MyComponent = function (props: MyComponentsProps) {
 
   const handleKetcherInit = useCallback(
     (ketcher: Ketcher) => {
-      // @ts-ignore 
-      ketcher.setSettings({ "general.dearomatize-on-load": true });
-      // ketcher.editor.setOptions(JSON.stringify({ "general.dearomatize-on-load": true }));
+      if (dearomatize_on_load) {
+        // Settings and type annotations don't agree
+        // @ts-ignore 
+        ketcher.setSettings({ "general.dearomatize-on-load": true });
+      }
       setKetcher(ketcher);
       if (molecule) {
         ketcher.setMolecule(molecule);
