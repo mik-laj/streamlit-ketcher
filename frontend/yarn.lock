@@ -6668,7 +6668,19 @@ jsonpointer@^5.0.0:
     array-includes "^3.1.5"
     object.assign "^4.1.3"
 
-ketcher-core@2.7.2, ketcher-core@^2.7.2, "ketcher-core@workspace:*":
+ketcher-core@2.11.0, ketcher-core@^2.11.0, "ketcher-core@workspace:*":
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/ketcher-core/-/ketcher-core-2.11.0.tgz#911c34d7792d2ec6eefa82a62506add56f528d2d"
+  integrity sha512-yhx7yJ3oo0ZIZAcK9JGPJ5tEKKd/9zhCmo0DBa0juW5ZPWJtUucbc9B4lrfUComrNxl8pd1OLAxDsdQcUWKe5A==
+  dependencies:
+    "@babel/runtime" "^7.17.9"
+    ajv "^8.10.0"
+    assert "^2.0.0"
+    lodash "^4.17.21"
+    raphael "^2.3.0"
+    svgpath "^2.3.1"
+
+ketcher-core@2.7.2:
   version "2.7.2"
   resolved "https://registry.yarnpkg.com/ketcher-core/-/ketcher-core-2.7.2.tgz#d8dd2d40284c55f57b041b3be1e2929d4a66e1b3"
   integrity sha512-bRVaxSSRPvpBc3wU+/80FdU/p1xK1A+VI81qas9CmnxERMRIKncPsN/yIK2hLl6ZwFSuwossvak1LW8rOyyuDg==

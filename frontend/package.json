@@ -7,7 +7,7 @@
     "@emotion/styled": "^11.10.6",
     "@react-hook/resize-observer": "^1.2.6",
     "color2k": "^2.0.2",
-    "ketcher-core": "^2.7.2",
+    "ketcher-core": "^2.11.0",
     "ketcher-react": "^2.7.2",
     "ketcher-standalone": "^2.7.2",
     "react": "^17.0.2",
@@ -46,7 +46,7 @@
   },
   "resolutions": {
     "streamlit-component-lib/apache-arrow": "11.0.0",
-    "ketcher-core": "2.7.2",
+    "ketcher-core": "2.11.0",
     "ketcher-react": "2.7.2",
     "ketcher-standalone": "2.7.2",
     "ketcher-standalone/ketcher-core": "2.7.2",
