@@ -56,9 +56,13 @@ def streamlit_app():
         finally:
             process1.kill()
 
-@pytest.mark.parametrize("arom_dearom", [("O=C(C)Oc1ccccc1C(=O)O", "O=C(OC1C(C(O)=O)=CC=CC=1)C")])
-def test_should_dearomatize(page: Page, streamlit_app: str, assert_snapshot, arom_dearom):
 
+@pytest.mark.parametrize(
+    "arom_dearom", [("O=C(C)Oc1ccccc1C(=O)O", "O=C(OC1C(C(O)=O)=CC=CC=1)C")]
+)
+def test_should_dearomatize(
+    page: Page, streamlit_app: str, assert_snapshot, arom_dearom
+):
     input_smi, output_smi = arom_dearom
 
     page.goto(streamlit_app)

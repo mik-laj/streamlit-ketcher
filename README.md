@@ -26,11 +26,11 @@ st.markdown(f"Smile code: ``{smile_code}``")
 
 ## Development Notes
 
-To setup the dev server, `cd frontend` and run `yarn install --frozen-lockfile` to reproduce the dev environment exactly. Then run `yarn start` to start a local server. 
+To setup the dev server, `cd frontend` and run `yarn install --frozen-lockfile` to reproduce the dev environment exactly. Then run `yarn start` to start a local server.
 
 Simple unit tests can be run with `pytest tests/`.
 
-To install in editable mode locally (to run integration tests), `cd frontend` and run `yarn build` before running `pip install -e .` Integration tests also require setting up `playwright` (installed from `dev-requirements.txt`). Install browsers with `playwright install` after pip reqs are downloaded. Afterwards, run `pytest e2e/`. 
+To install in editable mode locally (to run integration tests), `cd frontend` and run `yarn build` before running `pip install -e .` Integration tests also require setting up `playwright` (installed from `dev-requirements.txt`). Install browsers with `playwright install` after pip reqs are downloaded. Afterwards, run `pytest e2e/`.
 
 ## Demo
 

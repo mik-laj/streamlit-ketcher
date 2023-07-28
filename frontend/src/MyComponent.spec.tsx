@@ -56,7 +56,13 @@ jest.mock("./StreamlitKetcherEditor", () => {
 });
 
 function getArgs(args: Partial<MyComponentsArgs> = {}): MyComponentsArgs {
-  return { molecule_format: "SMILES", height: 500, molecule: "CCO", dearomatize_on_load: true, ...args };
+  return {
+    molecule_format: "SMILES",
+    height: 500,
+    molecule: "CCO",
+    dearomatize_on_load: true,
+    ...args,
+  };
 }
 
 function getProps(props: Partial<MyComponentsProps> = {}): MyComponentsProps {

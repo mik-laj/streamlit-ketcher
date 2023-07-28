@@ -31,7 +31,11 @@ export const MyComponent = function (props: MyComponentsProps) {
   const editorRef = useRef(null);
   const [ketcher, setKetcher] = useState<Ketcher | null>(null);
   const [molecule, setMolecule] = useState<string>(props.args["molecule"]);
-  const { molecule_format: moleculeFormat, height, dearomatize_on_load} = props.args;
+  const {
+    molecule_format: moleculeFormat,
+    height,
+    dearomatize_on_load,
+  } = props.args;
   // const [dearomatize_on_load, setDearomatize] = useState<boolean>(props.args["dearomatize_on_load"]);
 
   useEffect(() => Streamlit.setFrameHeight());
@@ -62,7 +66,7 @@ export const MyComponent = function (props: MyComponentsProps) {
     (ketcher: Ketcher) => {
       if (dearomatize_on_load) {
         // Settings and type annotations don't agree
-        // @ts-ignore 
+        // @ts-ignore
         ketcher.setSettings({ "general.dearomatize-on-load": true });
       }
       setKetcher(ketcher);

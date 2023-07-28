@@ -46,7 +46,7 @@ def st_ketcher(
         The format of molecule representation.
     dearomatize: bool
         Whether to dearomatize the molecule on load. HIGHLY recommended for
-        use with RDKit. 
+        use with RDKit.
     key: str or None
         An optional key that uniquely identifies this component. If this is
         None, and the component's arguments are changed, the component will
