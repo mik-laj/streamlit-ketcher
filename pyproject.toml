@@ -21,7 +21,7 @@ classifiers = [
 ]
 
 dependencies = [
-    "streamlit>=1.25.0",
+    "streamlit>=1.0.0",
 ]
 requires-python = ">=3.7"
 
