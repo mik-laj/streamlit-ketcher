@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.10.6",
+    "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.10.6",
     "@react-hook/resize-observer": "^1.2.6",
     "color2k": "^2.0.2",
