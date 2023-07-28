@@ -30,7 +30,7 @@ To setup the dev server, `cd frontend` and run `yarn install --frozen-lockfile` 
 
 Simple unit tests can be run with `pytest tests/`.
 
-To install locally (to run integration tests), `cd frontend` and run `yarn build` before running `pip install -e .` Integration tests also require setting up `playwright` (installed from `dev-requirements.txt`). Install browsers with `playwright install` after pip reqs are downloaded. Afterwards, run `pytest e2e/`. 
+To install in editable mode locally (to run integration tests), `cd frontend` and run `yarn build` before running `pip install -e .` Integration tests also require setting up `playwright` (installed from `dev-requirements.txt`). Install browsers with `playwright install` after pip reqs are downloaded. Afterwards, run `pytest e2e/`. 
 
 ## Demo
 
