@@ -123,7 +123,7 @@ class StreamlitRunner:
             ]
         )
         self._process.start()
-        if self.is_server_running():
+        if not self.is_server_running():
             self._process.stop()
             raise RuntimeError("Application failed to start")
 
@@ -133,13 +133,18 @@ class StreamlitRunner:
     def is_server_running(self, timeout: int = 30):
         with requests.Session() as http_session:
             start_time = time.time()
+            print("Start loop: ", start_time)
             while True:
                 with contextlib.suppress(requests.RequestException):
                     response = http_session.get(self.server_url + "/_stcore/health")
+                    print("response=", response)
                     if response.text == "ok":
+                        print("Return True")
                         return True
+                print("Waiting 3s")
                 time.sleep(3)
                 if time.time() - start_time > 60 * timeout:
+                    print("Return false")
                     return False
 
     @property
