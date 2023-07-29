@@ -122,6 +122,7 @@ class StreamlitRunner:
                 "--global.developmentMode=false",
             ]
         )
+        self._process.start()
         if self.is_server_running():
             self._process.stop()
             raise RuntimeError("Application failed to start")
