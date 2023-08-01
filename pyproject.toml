@@ -5,10 +5,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "streamlit_ketcher"
-version = "0.0.2"
+version = "0.0.3"
 authors = [
     { name="Kamil Bregula", email="dzakus13+pypi@gmail.com" },
-    { name= "Edward Williams", email="edward@terraytx.com"}
 ]
 description = "Ketcher editor component for Streamlit."
 readme = "README.md"
