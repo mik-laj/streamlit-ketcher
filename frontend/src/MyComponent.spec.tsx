@@ -27,6 +27,7 @@ jest.mock("./StreamlitKetcherEditor", () => {
         moleculeListener(mol);
       }
     },
+    setSettings: () => {},
     getSmiles: () => "SMILES:" + currentMolecule,
     getMolfile: () => "MOLFILE:" + currentMolecule,
   };
