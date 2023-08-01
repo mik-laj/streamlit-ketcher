@@ -69,7 +69,7 @@ jobs:
         run: ./dev.py js-build
 
       - name: Run e2e tests
-        run: pytest e2e
+        run: pytest e2e --reruns 5
 
       - name: Upload snapshots
         uses: actions/upload-artifact@v3
@@ -96,12 +96,21 @@ jobs:
 
       - name: Checkout code
         uses: actions/checkout@v3
+        if: |
+          github.repository == 'mik-laj/streamlit-ketcher' &&
+          github.event_name == 'push' &&
+          github.ref == 'refs/heads/main'
         with:
           ref: ${{ github.event.repository.default_branch }}
           persist-credentials: 'true'
           path: 'component-preview'
 
-      - run: |
+      - name: Deploy preview to ${{ env.TARGET_BRANCH }}
+        if: |
+          github.repository == 'mik-laj/streamlit-ketcher' &&
+          github.event_name == 'push' &&
+          github.ref == 'refs/heads/main'
+        run: |
           set -x;
           (
             cd component-preview;
