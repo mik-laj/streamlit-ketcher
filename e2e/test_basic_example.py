@@ -1,29 +1,31 @@
+import re
 from pathlib import Path
 
 import pytest
 
 from playwright.sync_api import Page, expect
 
-from e2e.e2e_utils import StreamlitRunner
+from e2e_utils import StreamlitRunner
 
 ROOT_DIRECTORY = Path(__file__).parent.parent.absolute()
 BASIC_EXAMPLE_FILE = ROOT_DIRECTORY / "e2e" / "apps" / "basic_example.py"
 
 
 @pytest.fixture(autouse=True, scope="module")
-def streamlit_app():
+def streamlit_app(request):
     with StreamlitRunner(BASIC_EXAMPLE_FILE) as runner:
         yield runner
 
 
 @pytest.fixture(autouse=True, scope="function")
-def go_to_app(page: Page, streamlit_app: StreamlitRunner):
+def go_to_app(page: Page, streamlit_app: StreamlitRunner, request):
     page.goto(streamlit_app.server_url)
     # Wait for app to load
     page.get_by_role("img", name="Running...").is_hidden()
+    yield
 
 
-def test_should_return_user_input(page: Page, assert_snapshot):
+def test_should_return_user_input(page: Page, assert_snapshot, request):
     frame_0 = page.frame_locator(
         'iframe[title="streamlit_ketcher\\.streamlit_ketcher"]'
     )
@@ -46,7 +48,7 @@ def test_should_return_user_input(page: Page, assert_snapshot):
     expect(page.get_by_text("Smile code")).to_have_text("Smile code: C1C=CC=CC=1")
 
 
-def test_should_render_user_input(page: Page, assert_snapshot):
+def test_should_render_user_input(page: Page, assert_snapshot, request):
     page.get_by_role("textbox", name="Molecule").click()
     page.get_by_role("textbox", name="Molecule").fill("CCO")
     page.get_by_role("textbox", name="Molecule").press("Enter")
@@ -68,7 +70,9 @@ def test_should_render_user_input(page: Page, assert_snapshot):
     frame_0.get_by_role("button", name="Reset").click()
     page.get_by_role("img", name="Running...").is_hidden()
     # Wait for the value to be set in Ketcher.
-    frame_0.get_by_role("button", name="Rectangle Selection (Esc)").click()
+    frame_0.locator("div").filter(has_text=re.compile(r"^Esc$")).get_by_title(
+        "Rectangle Selection (Esc)"
+    ).click()
     # Pass value to Streamlit
     frame_0.get_by_role("button", name="Apply").click()
     page.get_by_role("img", name="Running...").is_hidden()
