@@ -7,9 +7,9 @@
     "@emotion/styled": "^11.10.6",
     "@react-hook/resize-observer": "^1.2.6",
     "color2k": "^2.0.2",
-    "ketcher-core": "^2.11.0",
-    "ketcher-react": "^2.11.0",
-    "ketcher-standalone": "^2.11.0",
+    "ketcher-core": "^2.12.0",
+    "ketcher-react": "^2.12.0",
+    "ketcher-standalone": "^2.12.0",
     "react": "^18.0.2",
     "react-app-polyfill": "^3.0.0",
     "react-dom": "^18.0.2",
@@ -45,9 +45,9 @@
     ]
   },
   "resolutions": {
-    "ketcher-core": "2.11.0",
-    "ketcher-react": "2.11.0",
-    "ketcher-standalone": "2.11.0",
+    "ketcher-core": "2.12.0",
+    "ketcher-react": "2.12.0",
+    "ketcher-standalone": "2.12.0",
     "ketcher-standalone/ketcher-core": "2.11.0",
     "ketcher-react/ketcher-core": "2.11.0"
   },

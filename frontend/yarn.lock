@@ -6875,7 +6875,19 @@ jsonpointer@^5.0.0:
     object.assign "^4.1.4"
     object.values "^1.1.6"
 
-ketcher-core@*, ketcher-core@2.11.0, ketcher-core@^2.11.0:
+ketcher-core@*, ketcher-core@2.12.0, ketcher-core@^2.12.0:
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/ketcher-core/-/ketcher-core-2.12.0.tgz#fed5b50e2e9033441e5102ac78afc6e5faa7d3d2"
+  integrity sha512-etWdZqu4ho8CdTcDjvgaDCGPSVxXTM5DdNf68THBAJKUBssWf47UaHvqjyCW/82vNJS/w99lUwONG8j9MYn11A==
+  dependencies:
+    "@babel/runtime" "^7.17.9"
+    ajv "^8.10.0"
+    assert "^2.0.0"
+    lodash "^4.17.21"
+    raphael "^2.3.0"
+    svgpath "^2.3.1"
+
+ketcher-core@2.11.0:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/ketcher-core/-/ketcher-core-2.11.0.tgz#911c34d7792d2ec6eefa82a62506add56f528d2d"
   integrity sha512-yhx7yJ3oo0ZIZAcK9JGPJ5tEKKd/9zhCmo0DBa0juW5ZPWJtUucbc9B4lrfUComrNxl8pd1OLAxDsdQcUWKe5A==
@@ -6887,10 +6899,10 @@ ketcher-core@*, ketcher-core@2.11.0, ketcher-core@^2.11.0:
     raphael "^2.3.0"
     svgpath "^2.3.1"
 
-ketcher-react@2.11.0, ketcher-react@^2.11.0:
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/ketcher-react/-/ketcher-react-2.11.0.tgz#6c8d90e453e055b51e84d8165c082a5aa65d2549"
-  integrity sha512-SDOLiCrs2+rD5bR9wz7BBNYeWicS1x0DF0lP9q1DHoU8pzmYDG1awOiWWqFReUR/VzJWyfDmljMGwTdxR/O/Ag==
+ketcher-react@2.12.0, ketcher-react@^2.12.0:
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/ketcher-react/-/ketcher-react-2.12.0.tgz#37d789411ef2834104283a65c9fc0a3d56a59202"
+  integrity sha512-l9E59iAHm1W5b3Q9mVOSBecbEUOpw47vMtA+EmYqnNAyUZFPShT55MZXwpYrFser8m6AKo2+tWonWzd9Ot337Q==
   dependencies:
     "@babel/runtime" "^7.17.9"
     "@emotion/react" "^11.7.1"
@@ -6929,10 +6941,10 @@ ketcher-react@2.11.0, ketcher-react@^2.11.0:
     w3c-keyname "^2.2.4"
     whatwg-fetch "^3.4.1"
 
-ketcher-standalone@2.11.0, ketcher-standalone@^2.11.0:
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/ketcher-standalone/-/ketcher-standalone-2.11.0.tgz#e3c2d061014d0bf71a0223cc025d4655180c3bd9"
-  integrity sha512-1ZOBz3OjmKvVnAQR/CxAKBEDs+SGZ2zNe/EBztYuXBxFR7wNnduAvhbi7vg/6RLQ7UGvx98WQJ1/rJBFfGQ+uQ==
+ketcher-standalone@2.12.0, ketcher-standalone@^2.12.0:
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/ketcher-standalone/-/ketcher-standalone-2.12.0.tgz#46e9aa411c736e83b63dbf2ba2df2e21c33ca773"
+  integrity sha512-ImivV54XqKzhIcJShCeQAXx2Mm1KQaltw+gcRipdgXZJLWG3t9BofXBh4EBLiweACl8wT/aGuZvBTMptU2ofZQ==
   dependencies:
     "@babel/runtime" "^7.17.9"
     indigo-ketcher "1.12.0"
