@@ -6,7 +6,7 @@ import streamlit.components.v1 as components
 
 # Create a _IS_DEV constant. We'll set this to False while we're developing
 # the component, and True when we're ready to package and distribute it.
-_IS_DEV = "__main__" == __name__
+_IS_DEV = False
 
 if _IS_DEV:
     _render_component = components.declare_component(
