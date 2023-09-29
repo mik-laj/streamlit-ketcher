@@ -2,9 +2,9 @@
 __pycache__/
 
 # Distribution / packaging
-streamlit_ketcher/frontend
-build/
-dist/
+# streamlit_ketcher/frontend
+# build/
+# dist/
 
 # Python Environment
 venv/

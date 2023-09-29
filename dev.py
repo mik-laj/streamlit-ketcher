@@ -52,8 +52,9 @@ def ensure_environment():
         raise SystemExit("'yarn' is not installed")
 
 
+# frozen lockfile is required for proper reproducibility
 def ensure_js_modules_installed():
-    run_verbose(["yarn", "install"], cwd=FRONTEND_DIRECTORY)
+    run_verbose(["yarn", "install", "--frozen-lockfile"], cwd=FRONTEND_DIRECTORY)
 
 
 def cmd_py_create_venv(args):
