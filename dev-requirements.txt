@@ -1,7 +1,7 @@
 -e .
 pre-commit==3.3.3
 wheel
-pytest==7.4.0
+pytest==7.4.3
 playwright==1.36.0
 requests==2.31.0
 pytest-playwright-snapshot==1.0
